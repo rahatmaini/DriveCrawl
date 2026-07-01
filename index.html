@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveCrawl — Data Collection Catalog</title>
+    <style>
+        :root {
+            --dod-blue: #e2242f;
+            --dod-blue-light: #ff4757;
+            --dod-blue-dark: #3d0910;
+            --accent: #ffffff;
+            --bg: #0b0b0d;
+            --bg-alt: #131316;
+            --panel: #1b1b1f;
+            --panel-alt: #222227;
+            --border: #302f34;
+            --muted: #9a9aa3;
+            --text: #f2f2f5;
+            --danger: #ff3b3b;
+            --danger-hover: #ff5c5c;
+            --success: #33d17a;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dod-blue-dark) 0%, var(--dod-blue) 100%);
+            color: #fff;
+            padding: 1.25em 2em 0 2em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        header .title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75em;
+            flex-wrap: wrap;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.6em;
+            letter-spacing: 0.02em;
+        }
+        header .tagline {
+            color: #cfd6e0;
+            font-size: 0.95em;
+        }
+        nav.tabs {
+            margin-top: 1em;
+            display: flex;
+            gap: 0.25em;
+            flex-wrap: wrap;
+        }
+        nav.tabs button {
+            background: transparent;
+            color: #cfd6e0;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 0.75em 1.25em;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.15s, border-color 0.15s, background 0.15s;
+            border-radius: 4px 4px 0 0;
+        }
+        nav.tabs button:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        nav.tabs button.active {
+            color: #fff;
+            border-bottom-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+        }
+
+        .panel {
+            background: var(--panel);
+            border-radius: 8px;
+            padding: 2em;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5em;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--dod-blue);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5em;
+            font-size: 1.3em;
+        }
+        h3 {
+            color: var(--dod-blue);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            font-size: 1.05em;
+        }
+        p.lead { color: var(--muted); margin-top: 0; line-height: 1.5; }
+
+        /* ----- Forms ----- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25em;
+        }
+        .form-field { display: flex; flex-direction: column; }
+        .full-width { grid-column: 1 / -1; }
+        label {
+            margin-bottom: 0.4em;
+            font-weight: 600;
+            font-size: 0.92em;
+            color: #d4d4d9;
+        }
+        input[type="text"], input[type="email"], input[type="search"], textarea, select {
+            padding: 0.7em 0.8em;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.95em;
+            font-family: inherit;
+            background: var(--panel-alt);
+            color: var(--text);
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        input::placeholder, textarea::placeholder { color: var(--muted); }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--dod-blue-light);
+            box-shadow: 0 0 0 3px rgba(226, 36, 47, 0.2);
+        }
+        textarea { resize: vertical; min-height: 80px; }
+
+        /* ----- Buttons ----- */
+        .button, button.button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+            padding: 0.7em 1.25em;
+            background: var(--dod-blue);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            text-decoration: none;
+            font-family: inherit;
+            transition: background 0.15s, transform 0.05s;
+        }
+        .button:hover { background: var(--dod-blue-light); }
+        .button:active { transform: translateY(1px); }
+        .button.secondary { background: #3a3a40; }
+        .button.secondary:hover { background: #4a4a52; }
+        .button.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+        .button.danger:hover { background: var(--danger); color: #fff; }
+        .button.ghost {
+            background: transparent;
+            color: var(--dod-blue-light);
+            border: 1px solid var(--dod-blue);
+        }
+        .button.ghost:hover { background: rgba(226, 36, 47, 0.1); }
+        .button.small { padding: 0.4em 0.8em; font-size: 0.85em; }
+        .button[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #4a4a50;
+        }
+
+        .button-group { display: flex; gap: 0.75em; flex-wrap: wrap; margin-top: 1em; }
+
+        /* ----- File input ----- */
+        .file-input-wrapper {
+            margin-top: 1.5em;
+            border-top: 2px solid var(--border);
+            padding-top: 1.5em;
+        }
+        input[type="file"] { display: none; }
+
+        #progress-container { margin-top: 1em; display: none; }
+        progress {
+            width: 100%;
+            height: 22px;
+            border: none;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        progress::-webkit-progress-bar { background: var(--panel-alt); border-radius: 4px; }
+        progress::-webkit-progress-value { background: var(--dod-blue); border-radius: 4px; }
+        progress::-moz-progress-bar { background: var(--dod-blue); }
+        #progress-text { text-align: center; margin-top: 0.5em; color: var(--muted); font-size: 0.9em; }
+
+        .hidden { display: none !important; }
+
+        /* ----- Explore ----- */
+        .toolbar {
+            display: flex;
+            gap: 0.75em;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .toolbar .grow { flex: 1; min-width: 220px; }
+        .pill {
+            display: inline-block;
+            background: var(--panel-alt);
+            color: var(--dod-blue-light);
+            border: 1px solid var(--border);
+            padding: 0.2em 0.6em;
+            border-radius: 999px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 0.3em;
+        }
+
+        .entry-list { display: flex; flex-direction: column; gap: 0.75em; }
+        .entry-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1em 1.25em;
+            background: var(--panel-alt);
+            transition: box-shadow 0.15s, border-color 0.15s;
+        }
+        .entry-card:hover { border-color: var(--dod-blue-light); box-shadow: 0 2px 12px rgba(226, 36, 47, 0.15); }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+        .entry-title { font-weight: 600; font-size: 1.05em; color: var(--dod-blue); }
+        .entry-meta { color: var(--muted); font-size: 0.9em; margin-top: 0.25em; }
+        .entry-meta strong { color: var(--text); font-weight: 600; }
+        .entry-subjects { margin-top: 0.5em; font-size: 0.92em; }
+        .entry-details {
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px dashed var(--border);
+            display: none;
+        }
+        .entry-card.expanded .entry-details { display: block; }
+        .entry-card.expanded { border-color: var(--dod-blue-light); }
+
+        .kv-grid {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0.4em 1em;
+            font-size: 0.92em;
+            margin-bottom: 0.75em;
+        }
+        .kv-grid .k { color: var(--muted); font-weight: 600; }
+        .kv-grid .v { word-break: break-word; }
+        .kv-grid .v a { color: var(--dod-blue-light); text-decoration: none; }
+        .kv-grid .v a:hover { text-decoration: underline; }
+
+        .empty-state {
+            text-align: center;
+            padding: 3em 1em;
+            color: var(--muted);
+        }
+        .empty-state h3 { color: var(--muted); margin-top: 0; border: none; }
+
+        /* ----- File tree ----- */
+        .tree {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.85em;
+            background: var(--bg-alt);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.75em 1em;
+            max-height: 400px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+        .tree ul { list-style: none; padding-left: 1.25em; margin: 0; }
+        .tree > ul { padding-left: 0; }
+        .tree li { padding: 2px 0; }
+        .tree .folder {
+            cursor: pointer;
+            user-select: none;
+            color: var(--dod-blue);
+            font-weight: 600;
+        }
+        .tree .folder::before {
+            content: "▸ ";
+            display: inline-block;
+            width: 1em;
+            transition: transform 0.1s;
+        }
+        .tree .folder.open::before { content: "▾ "; }
+        .tree .folder.open + ul { display: block; }
+        .tree .folder + ul { display: none; }
+        .tree .file { color: var(--muted); padding-left: 1em; }
+        .tree .file .size { color: var(--muted); font-size: 0.85em; margin-left: 0.5em; }
+        .tree mark { background: var(--dod-blue); color: #fff; padding: 0 2px; border-radius: 2px; }
+
+        /* ----- Admin ----- */
+        .admin-entry-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1em;
+            padding: 0.75em 1em;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--panel-alt);
+            margin-bottom: 0.5em;
+        }
+        .admin-entry-info { flex: 1; min-width: 0; }
+        .admin-entry-info .title { font-weight: 600; color: var(--dod-blue); }
+        .admin-entry-info .sub { color: var(--muted); font-size: 0.88em; margin-top: 0.2em; }
+
+        .db-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1em;
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.75em 1em;
+            margin-bottom: 1em;
+            font-size: 0.92em;
+            flex-wrap: wrap;
+        }
+        .db-banner.no-db { background: rgba(226, 36, 47, 0.08); border-color: var(--dod-blue-dark); }
+        .db-banner .status { font-weight: 600; }
+        .db-banner .status.ok { color: var(--success); }
+        .db-banner .status.warn { color: var(--dod-blue-light); }
+
+        .notice {
+            padding: 0.75em 1em;
+            border-radius: 4px;
+            margin: 0.75em 0;
+            font-size: 0.92em;
+        }
+        .notice.info { background: var(--panel-alt); color: var(--text); border: 1px solid var(--border); }
+        .notice.success { background: rgba(51, 209, 122, 0.12); color: var(--success); border: 1px solid rgba(51, 209, 122, 0.35); }
+        .notice.error { background: rgba(255, 59, 59, 0.12); color: var(--danger-hover); border: 1px solid rgba(255, 59, 59, 0.4); }
+
+        details.help {
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.75em 1em;
+            margin-top: 1em;
+            font-size: 0.9em;
+        }
+        details.help summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dod-blue);
+        }
+        details.help[open] summary { margin-bottom: 0.5em; }
+
+        /* ----- Access gate / choice screen ----- */
+        .gate-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 15%, var(--dod-blue-dark) 0%, #000000 72%);
+            padding: 2em;
+        }
+        .gate-card { max-width: 640px; width: 100%; text-align: center; }
+        .gate-card h1 { font-size: 2.4em; margin: 0 0 0.3em; color: #fff; letter-spacing: 0.01em; }
+        .gate-card .gate-sub { color: var(--muted); font-size: 1.02em; margin-bottom: 2em; line-height: 1.5; }
+        .gate-dropzone {
+            border: 3px dashed var(--dod-blue);
+            border-radius: 14px;
+            padding: 3em 2em;
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .gate-dropzone:hover, .gate-dropzone.drag-over {
+            border-color: var(--dod-blue-light);
+            background: rgba(226, 36, 47, 0.08);
+        }
+        .gate-dropzone .icon { font-size: 3em; margin-bottom: 0.3em; }
+        .gate-dropzone .primary-text { font-size: 1.35em; font-weight: 700; color: #fff; }
+        .gate-dropzone .secondary-text { color: var(--muted); margin-top: 0.5em; font-size: 0.95em; }
+        #gate-error { margin-top: 1.5em; text-align: left; }
+
+        .choice-card { display: flex; gap: 1.5em; flex-wrap: wrap; justify-content: center; margin-top: 1em; }
+        .choice-option {
+            flex: 1 1 220px;
+            max-width: 260px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2em 1.5em;
+            cursor: pointer;
+            transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+        }
+        .choice-option:hover {
+            border-color: var(--dod-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(226, 36, 47, 0.25);
+        }
+        .choice-option .icon { font-size: 2.5em; margin-bottom: 0.4em; }
+        .choice-option h3 { margin: 0.3em 0; color: #fff; border: none; }
+        .choice-option p { color: var(--muted); font-size: 0.9em; margin: 0; }
+
+        @media (max-width: 700px) {
+            .form-grid { grid-template-columns: 1fr; }
+            header { padding: 1em; }
+            .panel { padding: 1.25em; }
+            main { padding: 0 0.75em; margin: 1em auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="gate-screen" class="gate-screen">
+    <div class="gate-card">
+        <h1>🔒 Upload Your AITR Access Card</h1>
+        <p class="gate-sub">(this is the AITR BoD provided .json database file, you need this to access RTI's AITR Data Collection Catalog)</p>
+        <div id="gate-dropzone" class="gate-dropzone">
+            <div class="icon">📇</div>
+            <div class="primary-text">Drag &amp; drop your Access Card here</div>
+            <div class="secondary-text">or click to browse for a .json file</div>
+        </div>
+        <input type="file" id="gate-file-input" accept=".json,application/json">
+        <div id="gate-error"></div>
+    </div>
+</div>
+
+<div id="choice-screen" class="gate-screen hidden">
+    <div class="gate-card">
+        <h1>Access Granted</h1>
+        <p class="gate-sub">What would you like to do?</p>
+        <div class="choice-card">
+            <div class="choice-option" id="choice-browse">
+                <div class="icon">🔎</div>
+                <h3>Browse the Catalog</h3>
+                <p>Search existing data collections in the AITR catalog.</p>
+            </div>
+            <div class="choice-option" id="choice-add">
+                <div class="icon">📤</div>
+                <h3>Add a Data Collection</h3>
+                <p>Submit a new data collection to the catalog.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="app-shell" class="hidden">
+
+<header>
+    <div class="title-row">
+        <h1>DriveCrawl</h1>
+        <span class="tagline">AITR Data Collection Catalog</span>
+    </div>
+    <nav class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="submit" role="tab">Submit a Collection</button>
+        <button class="tab-btn" data-tab="explore" role="tab">Explore the Catalog</button>
+        <button class="tab-btn" data-tab="admin" role="tab">Admin</button>
+    </nav>
+</header>
+
+<main>
+
+<!-- =====================================================
+     SUBMIT TAB
+===================================================== -->
+<section id="tab-submit" class="tab-content">
+    <div class="panel">
+        <h2>Submit a Data Collection</h2>
+        <p class="lead">
+            Fill out the form below and then scan the directory containing your collection. Every byte of scanning
+            happens locally in your browser — nothing is uploaded. When the scan finishes you'll get a
+            <code>.json</code> submission file. Email that file to the catalog administrator so it can be added
+            to the organization catalog.
+        </p>
+
+        <form id="metadata-form">
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Last, First">
+                </div>
+                <div class="form-field">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.mil">
+                </div>
+                <div class="form-field">
+                    <label for="organization">Organization / Unit</label>
+                    <input type="text" id="organization" name="organization" placeholder="e.g., 1st UAS Det.">
+                </div>
+                <div class="form-field">
+                    <label for="collection-date">Data Collection Date</label>
+                    <input type="text" id="collection-date" name="collectionDate" placeholder="e.g., 2026-Q1 or 2025-08">
+                </div>
+                <div class="form-field full-width">
+                    <label for="collection-name">Data Collection Name</label>
+                    <input type="text" id="collection-name" name="collectionName" placeholder="Short descriptive title">
+                </div>
+                <div class="form-field full-width">
+                    <label for="collection-subjects">Subjects / Targets / Keywords</label>
+                    <input type="text" id="collection-subjects" name="collectionSubjects"
+                           placeholder="e.g., UAS, drone, thermal imagery, vehicles, MOUT">
+                </div>
+                <div class="form-field full-width">
+                    <label for="collection-location">Location(s)</label>
+                    <input type="text" id="collection-location" name="collectionLocation"
+                           placeholder="e.g., Fort Benning, GA">
+                </div>
+                <div class="form-field full-width">
+                    <label for="comments">Additional Notes</label>
+                    <textarea id="comments" name="comments"
+                              placeholder="Sensor types, classification, known issues, access instructions, etc."></textarea>
+                </div>
+            </div>
+        </form>
+
+        <div class="file-input-wrapper">
+            <div class="button-group">
+                <label for="file-input" class="button">📂 Choose Directory to Scan</label>
+                <button type="button" class="button ghost" id="scan-without-files">Submit Without Scan</button>
+            </div>
+            <input type="file" id="file-input" webkitdirectory directory multiple>
+            <div id="progress-container">
+                <progress id="progress-bar" value="0" max="100"></progress>
+                <div id="progress-text">Scanning... 0%</div>
+            </div>
+            <div id="button-group" class="button-group hidden">
+                <a id="download-link" class="button">⬇ Download Submission JSON</a>
+                <a id="email-link" class="button secondary">✉ Email to Admin</a>
+            </div>
+        </div>
+
+        <details class="help">
+            <summary>Where does my data go?</summary>
+            <p>Nothing leaves your machine during the scan. The tool only records <em>metadata</em> about your files
+            (names, paths, sizes, timestamps) — not file contents. You then email the resulting JSON to the catalog
+            administrator, who reviews it and adds it to the organization's shared database file.</p>
+        </details>
+    </div>
+</section>
+
+<!-- =====================================================
+     EXPLORE TAB
+===================================================== -->
+<section id="tab-explore" class="tab-content hidden">
+    <div class="panel">
+        <h2>Explore the Catalog</h2>
+        <p class="lead">
+            Search the organization's catalog of data collections to find existing work. Load the current
+            <code>database.json</code> file (distributed by the administrator) to begin — the file is parsed
+            locally in your browser.
+        </p>
+
+        <div id="explore-db-banner" class="db-banner no-db">
+            <div>
+                <span class="status warn">⚠ No database loaded.</span>
+                Load a catalog JSON file to begin exploring.
+            </div>
+            <div>
+                <label for="explore-db-input" class="button small">Load database.json</label>
+                <input type="file" id="explore-db-input" accept=".json,application/json">
+            </div>
+        </div>
+
+        <div id="explore-ui" class="hidden">
+            <div class="toolbar">
+                <input type="search" id="explore-search" class="grow"
+                       placeholder="Search collections, collectors, subjects, locations, filenames...">
+                <select id="explore-sort">
+                    <option value="date-desc">Newest collection first</option>
+                    <option value="date-asc">Oldest collection first</option>
+                    <option value="name-asc">Name A → Z</option>
+                    <option value="name-desc">Name Z → A</option>
+                    <option value="files-desc">Most files first</option>
+                </select>
+                <button type="button" class="button ghost small" id="explore-reload">Load different file</button>
+            </div>
+            <div id="explore-summary" class="notice info"></div>
+            <div id="explore-results" class="entry-list"></div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     ADMIN TAB
+===================================================== -->
+<section id="tab-admin" class="tab-content hidden">
+    <div class="panel">
+        <h2>Admin — Manage Catalog</h2>
+        <p class="lead">
+            Load the current catalog (or start a new one), import submission JSON files from collectors, and
+            add / remove / edit entries. When you're done, download the updated <code>database.json</code>
+            and redistribute it.
+        </p>
+
+        <div id="admin-db-banner" class="db-banner no-db">
+            <div>
+                <span id="admin-db-status" class="status warn">⚠ No database loaded.</span>
+                <span id="admin-db-details"></span>
+            </div>
+            <div class="button-group" style="margin-top:0">
+                <label for="admin-db-input" class="button small">Load database.json</label>
+                <input type="file" id="admin-db-input" accept=".json,application/json">
+                <button type="button" class="button ghost small" id="admin-db-new">Start new database</button>
+            </div>
+        </div>
+
+        <div id="admin-ui" class="hidden">
+            <div class="toolbar" style="margin-top:1.5em">
+                <label for="admin-import-input" class="button">＋ Import Submission JSON</label>
+                <input type="file" id="admin-import-input" accept=".json,application/json" multiple>
+                <button type="button" class="button secondary" id="admin-add-manual">＋ Add Entry Manually</button>
+                <button type="button" class="button" id="admin-download">⬇ Download Updated database.json</button>
+                <button type="button" class="button ghost" id="admin-export-csv">⬇ Export Index CSV</button>
+            </div>
+
+            <div id="admin-notice"></div>
+
+            <h3 style="margin-top:2em">Entries (<span id="admin-count">0</span>)</h3>
+            <input type="search" id="admin-search" placeholder="Filter entries..." style="width:100%;margin-bottom:0.75em;">
+            <div id="admin-entries"></div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+</div><!-- /app-shell -->
+
+<!-- =====================================================
+     ENTRY EDIT MODAL
+===================================================== -->
+<div id="edit-modal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:2em 1em;overflow:auto;">
+    <div class="panel" style="width:100%;max-width:700px;margin:0;">
+        <h2 id="edit-modal-title">Edit Entry</h2>
+        <form id="edit-form">
+            <input type="hidden" id="edit-id">
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="edit-name">Collector Name</label>
+                    <input type="text" id="edit-name">
+                </div>
+                <div class="form-field">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email">
+                </div>
+                <div class="form-field">
+                    <label for="edit-organization">Organization</label>
+                    <input type="text" id="edit-organization">
+                </div>
+                <div class="form-field">
+                    <label for="edit-date">Collection Date</label>
+                    <input type="text" id="edit-date">
+                </div>
+                <div class="form-field full-width">
+                    <label for="edit-collection-name">Collection Name</label>
+                    <input type="text" id="edit-collection-name">
+                </div>
+                <div class="form-field full-width">
+                    <label for="edit-subjects">Subjects / Keywords</label>
+                    <input type="text" id="edit-subjects">
+                </div>
+                <div class="form-field full-width">
+                    <label for="edit-location">Location(s)</label>
+                    <input type="text" id="edit-location">
+                </div>
+                <div class="form-field full-width">
+                    <label for="edit-comments">Notes</label>
+                    <textarea id="edit-comments"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="button-group">
+            <button type="button" class="button" id="edit-save">Save</button>
+            <button type="button" class="button ghost" id="edit-cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ========================================================================
+   GLOBAL STATE
+   ======================================================================== */
+const state = {
+    database: null,        // { schema, lastUpdated, entries: [] }
+    exploreDatabase: null, // separate from admin db so users don't mix roles
+    lastSubmission: null,
+};
+
+const DB_SCHEMA = "drivecrawl-db/v1";
+const SUBMISSION_SCHEMA = "drivecrawl-submission/v1";
+
+/* ========================================================================
+   UTILITIES
+   ======================================================================== */
+function $(sel, root = document) { return root.querySelector(sel); }
+function $$(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
+
+function uuid() {
+    if (crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'id-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+}
+
+function formatBytes(bytes) {
+    if (bytes === 0 || bytes == null) return "0 B";
+    const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+    const i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+    return (bytes / Math.pow(1024, i)).toFixed(i === 0 ? 0 : 2) + " " + units[i];
+}
+
+function escapeHtml(str) {
+    if (str == null) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function highlight(text, term) {
+    const safe = escapeHtml(text ?? "");
+    if (!term) return safe;
+    const pattern = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return safe.replace(new RegExp(pattern, "gi"), m => `<mark>${m}</mark>`);
+}
+
+function downloadJson(data, filename) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function readFileAsJson(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            try { resolve(JSON.parse(reader.result)); }
+            catch (e) { reject(new Error(`${file.name} is not valid JSON: ${e.message}`)); }
+        };
+        reader.onerror = () => reject(reader.error);
+        reader.readAsText(file);
+    });
+}
+
+function showNotice(containerId, type, message) {
+    const el = $("#" + containerId);
+    if (!el) return;
+    el.innerHTML = `<div class="notice ${type}">${message}</div>`;
+    if (type !== "error") {
+        setTimeout(() => { if (el.innerHTML.includes(message)) el.innerHTML = ""; }, 6000);
+    }
+}
+
+/* ========================================================================
+   TABS
+   ======================================================================== */
+$$(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        $$(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        $$(".tab-content").forEach(c => c.classList.add("hidden"));
+        $("#tab-" + btn.dataset.tab).classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+
+/* ========================================================================
+   ACCESS GATE — nothing in the catalog is reachable without a valid
+   AITR Access Card (a database.json matching sample_database.json).
+   ======================================================================== */
+function validateAccessCard(raw) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+        return "That file isn't a JSON object — it doesn't look like an AITR Access Card.";
+    }
+    if (!Array.isArray(raw.entries)) {
+        return "That file has no \"entries\" array — it doesn't match the AITR database.json structure.";
+    }
+    if (raw.schema && raw.schema !== DB_SCHEMA) {
+        return `Unrecognized schema "${escapeHtml(raw.schema)}" (expected "${DB_SCHEMA}").`;
+    }
+    for (const entry of raw.entries) {
+        if (!entry || typeof entry !== "object") {
+            return "One or more entries in the file are not valid objects.";
+        }
+    }
+    return null;
+}
+
+async function handleAccessCard(file) {
+    const errorEl = $("#gate-error");
+    errorEl.innerHTML = "";
+    if (!file.name.toLowerCase().endsWith(".json")) {
+        errorEl.innerHTML = `<div class="notice error">Access denied: please provide a .json file — that doesn't look like an AITR Access Card.</div>`;
+        return;
+    }
+    let raw;
+    try {
+        raw = await readFileAsJson(file);
+    } catch (err) {
+        errorEl.innerHTML = `<div class="notice error">Access denied: ${escapeHtml(err.message)}</div>`;
+        return;
+    }
+    const problem = validateAccessCard(raw);
+    if (problem) {
+        errorEl.innerHTML = `<div class="notice error">Access denied: ${problem}</div>`;
+        return;
+    }
+
+    const db = parseDatabase(raw);
+    state.database = JSON.parse(JSON.stringify(db));
+    state.exploreDatabase = JSON.parse(JSON.stringify(db));
+    enterAdminUi();
+    enterExploreUi();
+
+    $("#gate-screen").classList.add("hidden");
+    $("#choice-screen").classList.remove("hidden");
+}
+
+const gateDropzone = $("#gate-dropzone");
+const gateFileInput = $("#gate-file-input");
+
+gateDropzone.addEventListener("click", () => gateFileInput.click());
+gateDropzone.addEventListener("dragover", e => {
+    e.preventDefault();
+    gateDropzone.classList.add("drag-over");
+});
+gateDropzone.addEventListener("dragleave", () => {
+    gateDropzone.classList.remove("drag-over");
+});
+gateDropzone.addEventListener("drop", e => {
+    e.preventDefault();
+    gateDropzone.classList.remove("drag-over");
+    const file = e.dataTransfer.files[0];
+    if (file) handleAccessCard(file);
+});
+gateFileInput.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (file) handleAccessCard(file);
+});
+
+function enterApp(tabName) {
+    $("#choice-screen").classList.add("hidden");
+    $("#app-shell").classList.remove("hidden");
+    $$(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === tabName));
+    $$(".tab-content").forEach(c => c.classList.toggle("hidden", c.id !== "tab-" + tabName));
+    window.scrollTo({ top: 0 });
+}
+
+$("#choice-browse").addEventListener("click", () => enterApp("explore"));
+$("#choice-add").addEventListener("click", () => enterApp("submit"));
+
+/* ========================================================================
+   SUBMIT TAB — drive scan + submission generation
+   ======================================================================== */
+function collectFormData() {
+    const formData = new FormData($("#metadata-form"));
+    const obj = {};
+    formData.forEach((v, k) => { obj[k] = typeof v === "string" ? v.trim() : v; });
+    return obj;
+}
+
+function computeStats(fileSystem) {
+    let totalFiles = 0;
+    let totalSize = 0;
+    const topFolders = [];
+    function walk(node, isRoot = false) {
+        for (const [key, val] of Object.entries(node)) {
+            if (val && typeof val === "object" && "path" in val && "size" in val) {
+                totalFiles++;
+                totalSize += val.size || 0;
+            } else if (val && typeof val === "object") {
+                if (isRoot) topFolders.push(key);
+                walk(val, false);
+            }
+        }
+    }
+    walk(fileSystem, true);
+    return { totalFiles, totalSize, topFolders };
+}
+
+function buildSubmission(fileSystem) {
+    const form = collectFormData();
+    const stats = fileSystem ? computeStats(fileSystem) : { totalFiles: 0, totalSize: 0, topFolders: [] };
+    return {
+        schema: SUBMISSION_SCHEMA,
+        id: uuid(),
+        submittedAt: new Date().toISOString(),
+        contact: {
+            name: form.name || "",
+            email: form.email || "",
+            organization: form.organization || "",
+        },
+        collectionName: form.collectionName || "",
+        collectionDate: form.collectionDate || "",
+        collectionSubjects: form.collectionSubjects || "",
+        collectionLocation: form.collectionLocation || "",
+        comments: form.comments || "",
+        stats,
+        fileSystem: fileSystem || null,
+    };
+}
+
+async function handleDirectoryScan(files) {
+    const progressBar = $("#progress-bar");
+    const progressText = $("#progress-text");
+    const progressContainer = $("#progress-container");
+    const buttonGroup = $("#button-group");
+
+    progressContainer.style.display = "block";
+    buttonGroup.classList.add("hidden");
+
+    const fileStructure = {};
+    const total = files.length;
+    for (let i = 0; i < total; i++) {
+        const file = files[i];
+        const parts = file.webkitRelativePath.split("/");
+        let level = fileStructure;
+        for (let j = 0; j < parts.length - 1; j++) {
+            const part = parts[j];
+            if (!level[part]) level[part] = {};
+            level = level[part];
+        }
+        const name = parts[parts.length - 1];
+        level[name] = {
+            name: file.name,
+            path: file.webkitRelativePath,
+            size: file.size,
+            type: file.type || "N/A",
+            lastModified: new Date(file.lastModified).toISOString(),
+        };
+        if (i % 100 === 0 || i === total - 1) {
+            const pct = Math.round(((i + 1) / total) * 100);
+            progressBar.value = pct;
+            progressText.textContent = `Scanning... ${pct}% (${i + 1} / ${total} files)`;
+            await new Promise(r => setTimeout(r, 0)); // yield
+        }
+    }
+
+    finalizeSubmission(fileStructure);
+    progressText.textContent = `Scan complete — ${total.toLocaleString()} files cataloged.`;
+}
+
+function finalizeSubmission(fileStructure) {
+    const submission = buildSubmission(fileStructure);
+    state.lastSubmission = submission;
+
+    const dataStr = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(submission, null, 2));
+    const slug = (submission.collectionName || "submission").replace(/[^a-z0-9]+/gi, "_").toLowerCase() || "submission";
+    const dateStamp = new Date().toISOString().split("T")[0];
+
+    $("#download-link").setAttribute("href", dataStr);
+    $("#download-link").setAttribute("download", `drivecrawl_${slug}_${dateStamp}.json`);
+    $("#button-group").classList.remove("hidden");
+}
+
+$("#file-input").addEventListener("change", async e => {
+    const files = e.target.files;
+    if (!files.length) return;
+    await handleDirectoryScan(files);
+});
+
+$("#scan-without-files").addEventListener("click", () => {
+    finalizeSubmission(null);
+    $("#progress-container").style.display = "block";
+    $("#progress-text").textContent = "Submission created without a file scan.";
+    $("#progress-bar").value = 100;
+});
+
+$("#email-link").addEventListener("click", e => {
+    if (!state.lastSubmission) {
+        e.preventDefault();
+        alert("Please generate a submission first.");
+        return;
+    }
+    const sub = state.lastSubmission;
+    const subject = `DriveCrawl Submission: ${sub.collectionName || "(untitled)"}`;
+    const body = [
+        "Hello,",
+        "",
+        "Please find my DriveCrawl submission JSON attached.",
+        `Collection: ${sub.collectionName || "(untitled)"}`,
+        `Date: ${sub.collectionDate || "(unspecified)"}`,
+        `Files cataloged: ${sub.stats.totalFiles.toLocaleString()} (${formatBytes(sub.stats.totalSize)})`,
+        "",
+        "(Don't forget to attach the downloaded .json file before sending!)",
+    ].join("\n");
+    window.location.href = `mailto:rahat.maini.civ@army.mil?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ========================================================================
+   DATABASE HELPERS (used by Explore + Admin)
+   ======================================================================== */
+function emptyDatabase() {
+    return {
+        schema: DB_SCHEMA,
+        lastUpdated: new Date().toISOString(),
+        entries: [],
+    };
+}
+
+function normalizeEntry(raw, source = "import") {
+    // Accept either a submission JSON or a raw entry; normalize to an entry.
+    if (!raw || typeof raw !== "object") throw new Error("Not an object");
+    const isSubmission = raw.schema === SUBMISSION_SCHEMA ||
+        (raw.crawlMetadata && raw.fileSystem) || // legacy DriveCrawl.html
+        (raw.collectionName !== undefined && raw.contact) ||
+        (raw.collectionName !== undefined && raw.stats);
+
+    if (raw.crawlMetadata && raw.fileSystem && !raw.schema) {
+        // Legacy format from original DriveCrawl.html
+        const meta = raw.crawlMetadata;
+        const stats = computeStats(raw.fileSystem);
+        return {
+            id: uuid(),
+            submittedAt: meta.crawlDate || new Date().toISOString(),
+            contact: {
+                name: meta.name || "",
+                email: meta.email || "",
+                organization: meta.organization || "",
+            },
+            collectionName: meta.collectionName || "",
+            collectionDate: meta.collectionDate || "",
+            collectionSubjects: meta.collectionSubjects || "",
+            collectionLocation: meta.collectionLocation || "",
+            comments: meta.comments || "",
+            stats,
+            fileSystem: raw.fileSystem,
+        };
+    }
+
+    const stats = raw.stats || (raw.fileSystem ? computeStats(raw.fileSystem) : { totalFiles: 0, totalSize: 0, topFolders: [] });
+    return {
+        id: raw.id || uuid(),
+        submittedAt: raw.submittedAt || new Date().toISOString(),
+        contact: raw.contact || { name: "", email: "", organization: "" },
+        collectionName: raw.collectionName || "",
+        collectionDate: raw.collectionDate || "",
+        collectionSubjects: raw.collectionSubjects || "",
+        collectionLocation: raw.collectionLocation || "",
+        comments: raw.comments || "",
+        stats,
+        fileSystem: raw.fileSystem || null,
+    };
+}
+
+function parseDatabase(raw) {
+    if (!raw || typeof raw !== "object") throw new Error("File does not contain a JSON object.");
+    if (Array.isArray(raw.entries)) {
+        return {
+            schema: raw.schema || DB_SCHEMA,
+            lastUpdated: raw.lastUpdated || new Date().toISOString(),
+            entries: raw.entries.map(e => normalizeEntry(e, "db")),
+        };
+    }
+    // Maybe user loaded a single submission; wrap it
+    const single = normalizeEntry(raw, "db");
+    return {
+        schema: DB_SCHEMA,
+        lastUpdated: new Date().toISOString(),
+        entries: [single],
+    };
+}
+
+function entrySearchBlob(entry) {
+    const parts = [
+        entry.collectionName,
+        entry.collectionDate,
+        entry.collectionSubjects,
+        entry.collectionLocation,
+        entry.comments,
+        entry.contact?.name,
+        entry.contact?.email,
+        entry.contact?.organization,
+    ];
+    // Include up to ~500 file/folder names to keep search snappy
+    let fileBits = [];
+    function walk(node, depth = 0) {
+        if (!node || typeof node !== "object") return;
+        for (const [k, v] of Object.entries(node)) {
+            if (fileBits.length > 500) return;
+            fileBits.push(k);
+            if (v && typeof v === "object" && !("path" in v)) walk(v, depth + 1);
+        }
+    }
+    if (entry.fileSystem) walk(entry.fileSystem);
+    return (parts.join(" ") + " " + fileBits.join(" ")).toLowerCase();
+}
+
+/* ========================================================================
+   EXPLORE TAB
+   ======================================================================== */
+function enterExploreUi() {
+    $("#explore-db-banner").classList.add("hidden");
+    $("#explore-ui").classList.remove("hidden");
+    renderExplore();
+}
+
+$("#explore-db-input").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+        const raw = await readFileAsJson(file);
+        state.exploreDatabase = parseDatabase(raw);
+        enterExploreUi();
+    } catch (err) {
+        alert("Failed to load database: " + err.message);
+    }
+});
+
+$("#explore-reload").addEventListener("click", () => {
+    state.exploreDatabase = null;
+    $("#explore-db-banner").classList.remove("hidden");
+    $("#explore-ui").classList.add("hidden");
+    $("#explore-db-input").value = "";
+});
+
+$("#explore-search").addEventListener("input", renderExplore);
+$("#explore-sort").addEventListener("change", renderExplore);
+
+function renderExplore() {
+    const db = state.exploreDatabase;
+    if (!db) return;
+    const term = ($("#explore-search").value || "").trim().toLowerCase();
+    const sort = $("#explore-sort").value;
+
+    let entries = db.entries.slice();
+    if (term) {
+        entries = entries.filter(e => entrySearchBlob(e).includes(term));
+    }
+    entries.sort((a, b) => {
+        switch (sort) {
+            case "date-asc": return (a.collectionDate || a.submittedAt).localeCompare(b.collectionDate || b.submittedAt);
+            case "date-desc": return (b.collectionDate || b.submittedAt).localeCompare(a.collectionDate || a.submittedAt);
+            case "name-asc": return (a.collectionName || "").localeCompare(b.collectionName || "");
+            case "name-desc": return (b.collectionName || "").localeCompare(a.collectionName || "");
+            case "files-desc": return (b.stats?.totalFiles || 0) - (a.stats?.totalFiles || 0);
+            default: return 0;
+        }
+    });
+
+    const totalFiles = db.entries.reduce((s, e) => s + (e.stats?.totalFiles || 0), 0);
+    const totalSize = db.entries.reduce((s, e) => s + (e.stats?.totalSize || 0), 0);
+    const lastUpdated = db.lastUpdated ? new Date(db.lastUpdated).toLocaleString() : "unknown";
+    $("#explore-summary").innerHTML =
+        `<strong>${db.entries.length}</strong> collections in the catalog · ` +
+        `<strong>${totalFiles.toLocaleString()}</strong> files (${formatBytes(totalSize)}) · ` +
+        `Last updated: <strong>${escapeHtml(lastUpdated)}</strong>` +
+        (term ? ` · Showing <strong>${entries.length}</strong> matches for "${escapeHtml(term)}"` : "");
+
+    const results = $("#explore-results");
+    if (!entries.length) {
+        results.innerHTML = `<div class="empty-state"><h3>No collections match your search</h3><p>Try broadening your keywords.</p></div>`;
+        return;
+    }
+    results.innerHTML = entries.map(e => renderEntryCard(e, term)).join("");
+
+    $$(".entry-card", results).forEach(card => {
+        card.addEventListener("click", evt => {
+            if (evt.target.closest("a,button,.tree")) return;
+            card.classList.toggle("expanded");
+        });
+    });
+    $$(".tree .folder", results).forEach(f => {
+        f.addEventListener("click", evt => {
+            evt.stopPropagation();
+            f.classList.toggle("open");
+        });
+    });
+}
+
+function renderEntryCard(entry, term = "") {
+    const name = entry.collectionName || "(untitled collection)";
+    const contact = entry.contact || {};
+    const stats = entry.stats || { totalFiles: 0, totalSize: 0, topFolders: [] };
+    const mail = contact.email
+        ? `<a href="mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent('Re: ' + name)}">${escapeHtml(contact.email)}</a>`
+        : "(no email)";
+
+    return `
+    <div class="entry-card" data-id="${entry.id}">
+        <div class="entry-header">
+            <div style="flex:1;min-width:0;">
+                <div class="entry-title">${highlight(name, term)}</div>
+                <div class="entry-meta">
+                    <strong>${highlight(contact.name || "(unknown)", term)}</strong>
+                    ${contact.organization ? " · " + highlight(contact.organization, term) : ""}
+                    · ${escapeHtml(entry.collectionDate || "date unknown")}
+                    · ${stats.totalFiles.toLocaleString()} files · ${formatBytes(stats.totalSize)}
+                </div>
+                ${entry.collectionSubjects ? `<div class="entry-subjects">${entry.collectionSubjects.split(/[,;]/).map(s => s.trim()).filter(Boolean).map(s => `<span class="pill">${highlight(s, term)}</span>`).join("")}</div>` : ""}
+            </div>
+            <button class="button ghost small">Details ▾</button>
+        </div>
+        <div class="entry-details">
+            <div class="kv-grid">
+                <div class="k">Collector</div><div class="v">${highlight(contact.name || "—", term)}</div>
+                <div class="k">Email</div><div class="v">${mail}</div>
+                <div class="k">Organization</div><div class="v">${highlight(contact.organization || "—", term)}</div>
+                <div class="k">Collection date</div><div class="v">${highlight(entry.collectionDate || "—", term)}</div>
+                <div class="k">Submitted</div><div class="v">${escapeHtml(entry.submittedAt ? new Date(entry.submittedAt).toLocaleDateString() : "—")}</div>
+                <div class="k">Location</div><div class="v">${highlight(entry.collectionLocation || "—", term)}</div>
+                <div class="k">Subjects</div><div class="v">${highlight(entry.collectionSubjects || "—", term)}</div>
+                <div class="k">Top folders</div><div class="v">${(stats.topFolders || []).map(f => `<span class="pill">${highlight(f, term)}</span>`).join("") || "—"}</div>
+                <div class="k">Notes</div><div class="v" style="white-space:pre-wrap">${highlight(entry.comments || "—", term)}</div>
+            </div>
+            ${entry.fileSystem ? `<h3 style="margin-top:1em">File tree</h3><div class="tree">${renderTree(entry.fileSystem, term)}</div>` : `<p style="color:var(--muted)"><em>No file tree was included with this submission.</em></p>`}
+        </div>
+    </div>`;
+}
+
+function renderTree(node, term = "") {
+    const folders = [];
+    const files = [];
+    for (const [key, val] of Object.entries(node)) {
+        if (val && typeof val === "object" && "path" in val && "size" in val) {
+            files.push([key, val]);
+        } else {
+            folders.push([key, val]);
+        }
+    }
+    folders.sort((a, b) => a[0].localeCompare(b[0]));
+    files.sort((a, b) => a[0].localeCompare(b[0]));
+
+    let html = "<ul>";
+    for (const [k, v] of folders) {
+        html += `<li><span class="folder">${highlight(k, term)}/</span>${renderTree(v, term)}</li>`;
+    }
+    for (const [k, v] of files) {
+        html += `<li class="file">${highlight(k, term)}<span class="size">${formatBytes(v.size)}</span></li>`;
+    }
+    html += "</ul>";
+    return html;
+}
+
+/* ========================================================================
+   ADMIN TAB
+   ======================================================================== */
+$("#admin-db-input").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+        const raw = await readFileAsJson(file);
+        state.database = parseDatabase(raw);
+        enterAdminUi();
+        showNotice("admin-notice", "success", `Loaded ${state.database.entries.length} entries from ${escapeHtml(file.name)}.`);
+    } catch (err) {
+        alert("Failed to load database: " + err.message);
+    }
+});
+
+$("#admin-db-new").addEventListener("click", () => {
+    if (state.database && state.database.entries.length) {
+        if (!confirm("Start a new empty database? This will discard the one currently loaded (unless you've already downloaded it).")) return;
+    }
+    state.database = emptyDatabase();
+    enterAdminUi();
+    showNotice("admin-notice", "info", "New empty database created. Import submissions or add entries manually, then download.");
+});
+
+function enterAdminUi() {
+    $("#admin-db-banner").classList.add("hidden");
+    $("#admin-ui").classList.remove("hidden");
+    renderAdmin();
+}
+
+$("#admin-import-input").addEventListener("change", async e => {
+    if (!state.database) return;
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    let imported = 0, errors = [];
+    for (const f of files) {
+        try {
+            const raw = await readFileAsJson(f);
+            // Could be a single submission or another database
+            if (raw && Array.isArray(raw.entries)) {
+                raw.entries.forEach(en => state.database.entries.push(normalizeEntry(en, "import")));
+                imported += raw.entries.length;
+            } else {
+                state.database.entries.push(normalizeEntry(raw, "import"));
+                imported++;
+            }
+        } catch (err) {
+            errors.push(`${f.name}: ${err.message}`);
+        }
+    }
+    e.target.value = "";
+    state.database.lastUpdated = new Date().toISOString();
+    renderAdmin();
+    if (errors.length) {
+        showNotice("admin-notice", "error", `Imported ${imported} entries. Errors: <br>` + errors.map(escapeHtml).join("<br>"));
+    } else {
+        showNotice("admin-notice", "success", `Imported ${imported} ${imported === 1 ? "entry" : "entries"}.`);
+    }
+});
+
+$("#admin-add-manual").addEventListener("click", () => {
+    openEditModal(null);
+});
+
+$("#admin-download").addEventListener("click", () => {
+    if (!state.database) return;
+    state.database.lastUpdated = new Date().toISOString();
+    downloadJson(state.database, `database_${new Date().toISOString().split("T")[0]}.json`);
+});
+
+$("#admin-export-csv").addEventListener("click", () => {
+    if (!state.database) return;
+    const rows = [[
+        "id", "collectionName", "collectionDate", "collectionSubjects", "collectionLocation",
+        "collectorName", "collectorEmail", "organization", "totalFiles", "totalSize", "submittedAt", "comments"
+    ]];
+    for (const e of state.database.entries) {
+        rows.push([
+            e.id, e.collectionName, e.collectionDate, e.collectionSubjects, e.collectionLocation,
+            e.contact?.name || "", e.contact?.email || "", e.contact?.organization || "",
+            e.stats?.totalFiles || 0, e.stats?.totalSize || 0, e.submittedAt, e.comments,
+        ]);
+    }
+    const csv = rows.map(r => r.map(cell => {
+        const s = String(cell ?? "").replace(/"/g, '""');
+        return /[",\n]/.test(s) ? `"${s}"` : s;
+    }).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `catalog_index_${new Date().toISOString().split("T")[0]}.csv`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+});
+
+$("#admin-search").addEventListener("input", renderAdmin);
+
+function renderAdmin() {
+    const db = state.database;
+    if (!db) return;
+    const term = ($("#admin-search").value || "").trim().toLowerCase();
+    let entries = db.entries.slice();
+    if (term) entries = entries.filter(e => entrySearchBlob(e).includes(term));
+    entries.sort((a, b) => (b.submittedAt || "").localeCompare(a.submittedAt || ""));
+
+    $("#admin-count").textContent = db.entries.length;
+    $("#admin-db-status").textContent = `✓ Database loaded`;
+    $("#admin-db-status").className = "status ok";
+    $("#admin-db-details").textContent =
+        ` · ${db.entries.length} entries · last updated ${new Date(db.lastUpdated).toLocaleString()}`;
+
+    const container = $("#admin-entries");
+    if (!entries.length) {
+        container.innerHTML = `<div class="empty-state"><h3>No entries ${term ? "match your filter" : "yet"}</h3><p>${term ? "Clear the filter or adjust your search." : "Import a submission JSON or add an entry manually to get started."}</p></div>`;
+        return;
+    }
+    container.innerHTML = entries.map(e => `
+        <div class="admin-entry-row" data-id="${e.id}">
+            <div class="admin-entry-info">
+                <div class="title">${escapeHtml(e.collectionName || "(untitled)")}</div>
+                <div class="sub">
+                    ${escapeHtml(e.contact?.name || "(unknown)")}
+                    ${e.contact?.organization ? " · " + escapeHtml(e.contact.organization) : ""}
+                    · ${escapeHtml(e.collectionDate || "—")}
+                    · ${e.stats?.totalFiles?.toLocaleString() || 0} files
+                    · ${formatBytes(e.stats?.totalSize || 0)}
+                </div>
+            </div>
+            <div class="button-group" style="margin:0">
+                <button class="button ghost small" data-action="edit" data-id="${e.id}">Edit</button>
+                <button class="button danger small" data-action="delete" data-id="${e.id}">Remove</button>
+            </div>
+        </div>
+    `).join("");
+
+    $$("#admin-entries button[data-action]").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            if (btn.dataset.action === "edit") {
+                openEditModal(id);
+            } else if (btn.dataset.action === "delete") {
+                const entry = state.database.entries.find(e => e.id === id);
+                if (!entry) return;
+                if (!confirm(`Remove entry "${entry.collectionName || "(untitled)"}"? This cannot be undone (unless you've saved a backup).`)) return;
+                state.database.entries = state.database.entries.filter(e => e.id !== id);
+                state.database.lastUpdated = new Date().toISOString();
+                renderAdmin();
+                showNotice("admin-notice", "info", "Entry removed. Don't forget to download the updated database.");
+            }
+        });
+    });
+}
+
+/* ========================================================================
+   EDIT MODAL
+   ======================================================================== */
+function openEditModal(id) {
+    const isNew = !id;
+    const entry = isNew
+        ? {
+            id: uuid(),
+            contact: {}, stats: { totalFiles: 0, totalSize: 0, topFolders: [] },
+            submittedAt: new Date().toISOString(),
+        }
+        : state.database.entries.find(e => e.id === id);
+    if (!entry) return;
+
+    $("#edit-modal-title").textContent = isNew ? "Add Entry" : "Edit Entry";
+    $("#edit-id").value = entry.id;
+    $("#edit-name").value = entry.contact?.name || "";
+    $("#edit-email").value = entry.contact?.email || "";
+    $("#edit-organization").value = entry.contact?.organization || "";
+    $("#edit-date").value = entry.collectionDate || "";
+    $("#edit-collection-name").value = entry.collectionName || "";
+    $("#edit-subjects").value = entry.collectionSubjects || "";
+    $("#edit-location").value = entry.collectionLocation || "";
+    $("#edit-comments").value = entry.comments || "";
+
+    $("#edit-modal").classList.remove("hidden");
+    $("#edit-modal").dataset.isNew = isNew ? "1" : "0";
+}
+
+$("#edit-cancel").addEventListener("click", () => {
+    $("#edit-modal").classList.add("hidden");
+});
+
+$("#edit-save").addEventListener("click", () => {
+    const id = $("#edit-id").value;
+    const isNew = $("#edit-modal").dataset.isNew === "1";
+    const existing = isNew ? null : state.database.entries.find(e => e.id === id);
+
+    const updated = {
+        id,
+        submittedAt: existing?.submittedAt || new Date().toISOString(),
+        contact: {
+            name: $("#edit-name").value.trim(),
+            email: $("#edit-email").value.trim(),
+            organization: $("#edit-organization").value.trim(),
+        },
+        collectionName: $("#edit-collection-name").value.trim(),
+        collectionDate: $("#edit-date").value.trim(),
+        collectionSubjects: $("#edit-subjects").value.trim(),
+        collectionLocation: $("#edit-location").value.trim(),
+        comments: $("#edit-comments").value.trim(),
+        stats: existing?.stats || { totalFiles: 0, totalSize: 0, topFolders: [] },
+        fileSystem: existing?.fileSystem || null,
+    };
+
+    if (isNew) {
+        state.database.entries.push(updated);
+    } else {
+        const idx = state.database.entries.findIndex(e => e.id === id);
+        if (idx >= 0) state.database.entries[idx] = updated;
+    }
+    state.database.lastUpdated = new Date().toISOString();
+    $("#edit-modal").classList.add("hidden");
+    renderAdmin();
+    showNotice("admin-notice", "success", isNew ? "Entry added." : "Entry updated.");
+});
+
+// Close modal on background click
+$("#edit-modal").addEventListener("click", e => {
+    if (e.target.id === "edit-modal") $("#edit-modal").classList.add("hidden");
+});
+</script>
+
+</body>
+</html>

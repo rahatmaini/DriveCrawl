@@ -1,0 +1,1296 @@
+{
+  "schema": "drivecrawl-db/v1",
+  "lastUpdated": "2026-07-01T16:17:32.916Z",
+  "entries": [
+    {
+      "id": "a1e6b4d2-0001-4c3a-9e11-000000000001",
+      "submittedAt": "2025-11-08T16:12:44.000Z",
+      "contact": {
+        "name": "Maini, Rahat",
+        "email": "rahat.maini.civ@army.mil",
+        "organization": "DEVCOM C5ISR Center"
+      },
+      "collectionName": "Group 1 UAS EO/IR Convoy Overwatch",
+      "collectionDate": "2025-Q3",
+      "collectionSubjects": "UAS, drone, small UAS, EO, IR, thermal, convoy, vehicles, road",
+      "collectionLocation": "Aberdeen Proving Ground, MD",
+      "comments": "Skydio X10D and Parrot Anafi USA flown at 50-120m AGL over simulated convoy routes on Phillips Army Airfield ranges. Sensors: visible HD and uncooled LWIR. Weather: mostly clear, some overcast. UNCLASSIFIED. Contact for raw MP4 + telemetry KLV.",
+      "stats": {
+        "totalFiles": 1842,
+        "totalSize": 412300000000,
+        "topFolders": [
+          "01_Raw_Video",
+          "02_Telemetry",
+          "03_Stills",
+          "04_Flight_Logs",
+          "05_Notes"
+        ]
+      },
+      "fileSystem": {
+        "APG_UAS_2025Q3": {
+          "01_Raw_Video": {
+            "Skydio_X10D": {
+              "2025-07-14_Convoy_Route_A": {
+                "flight_01.mp4": {
+                  "name": "flight_01.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Skydio_X10D/2025-07-14_Convoy_Route_A/flight_01.mp4",
+                  "size": 4820000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-14T14:22:00.000Z"
+                },
+                "flight_02.mp4": {
+                  "name": "flight_02.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Skydio_X10D/2025-07-14_Convoy_Route_A/flight_02.mp4",
+                  "size": 5120000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-14T15:04:00.000Z"
+                },
+                "flight_03_IR.mp4": {
+                  "name": "flight_03_IR.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Skydio_X10D/2025-07-14_Convoy_Route_A/flight_03_IR.mp4",
+                  "size": 2210000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-14T15:48:00.000Z"
+                }
+              },
+              "2025-07-15_Convoy_Route_B": {
+                "flight_04.mp4": {
+                  "name": "flight_04.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Skydio_X10D/2025-07-15_Convoy_Route_B/flight_04.mp4",
+                  "size": 4980000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-15T13:11:00.000Z"
+                }
+              }
+            },
+            "Parrot_Anafi_USA": {
+              "2025-07-16": {
+                "anafi_eo_01.mp4": {
+                  "name": "anafi_eo_01.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Parrot_Anafi_USA/2025-07-16/anafi_eo_01.mp4",
+                  "size": 1820000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-16T10:02:00.000Z"
+                },
+                "anafi_ir_01.mp4": {
+                  "name": "anafi_ir_01.mp4",
+                  "path": "APG_UAS_2025Q3/01_Raw_Video/Parrot_Anafi_USA/2025-07-16/anafi_ir_01.mp4",
+                  "size": 1540000000,
+                  "type": "video/mp4",
+                  "lastModified": "2025-07-16T10:44:00.000Z"
+                }
+              }
+            }
+          },
+          "02_Telemetry": {
+            "klv_streams": {
+              "flight_01.klv": {
+                "name": "flight_01.klv",
+                "path": "APG_UAS_2025Q3/02_Telemetry/klv_streams/flight_01.klv",
+                "size": 8400000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-07-14T14:22:00.000Z"
+              },
+              "flight_02.klv": {
+                "name": "flight_02.klv",
+                "path": "APG_UAS_2025Q3/02_Telemetry/klv_streams/flight_02.klv",
+                "size": 9100000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-07-14T15:04:00.000Z"
+              }
+            },
+            "gps_csv": {
+              "flight_01_gps.csv": {
+                "name": "flight_01_gps.csv",
+                "path": "APG_UAS_2025Q3/02_Telemetry/gps_csv/flight_01_gps.csv",
+                "size": 312000,
+                "type": "text/csv",
+                "lastModified": "2025-07-14T18:00:00.000Z"
+              }
+            }
+          },
+          "03_Stills": {
+            "labeled_vehicles.zip": {
+              "name": "labeled_vehicles.zip",
+              "path": "APG_UAS_2025Q3/03_Stills/labeled_vehicles.zip",
+              "size": 18400000000,
+              "type": "application/zip",
+              "lastModified": "2025-08-02T09:00:00.000Z"
+            }
+          },
+          "04_Flight_Logs": {
+            "flight_log_20250714.pdf": {
+              "name": "flight_log_20250714.pdf",
+              "path": "APG_UAS_2025Q3/04_Flight_Logs/flight_log_20250714.pdf",
+              "size": 2400000,
+              "type": "application/pdf",
+              "lastModified": "2025-07-14T22:00:00.000Z"
+            },
+            "flight_log_20250715.pdf": {
+              "name": "flight_log_20250715.pdf",
+              "path": "APG_UAS_2025Q3/04_Flight_Logs/flight_log_20250715.pdf",
+              "size": 2350000,
+              "type": "application/pdf",
+              "lastModified": "2025-07-15T22:00:00.000Z"
+            }
+          },
+          "05_Notes": {
+            "README.md": {
+              "name": "README.md",
+              "path": "APG_UAS_2025Q3/05_Notes/README.md",
+              "size": 18400,
+              "type": "text/markdown",
+              "lastModified": "2025-08-04T11:30:00.000Z"
+            },
+            "sensor_calibration.xlsx": {
+              "name": "sensor_calibration.xlsx",
+              "path": "APG_UAS_2025Q3/05_Notes/sensor_calibration.xlsx",
+              "size": 84000,
+              "type": "application/vnd.ms-excel",
+              "lastModified": "2025-08-04T11:45:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0002-4c3a-9e11-000000000002",
+      "submittedAt": "2025-09-22T11:05:00.000Z",
+      "contact": {
+        "name": "Alvarez, Miguel",
+        "email": "miguel.a.alvarez3.mil@army.mil",
+        "organization": "1st Cavalry Division, G-2 ISR"
+      },
+      "collectionName": "MOUT Urban Dismount Thermal Imagery",
+      "collectionDate": "2025-08",
+      "collectionSubjects": "thermal, LWIR, dismounts, personnel, MOUT, urban operations, night",
+      "collectionLocation": "Fort Cavazos, TX (MOUT site, West Fort Hood)",
+      "comments": "FLIR Boson 640 on tripod and on handheld rig, 24x7 collects across two nights. Includes both clothed and IR-camouflaged targets for detection benchmarking. SECRET//NOFORN — access via SIPR share; contact me for pointer.",
+      "stats": {
+        "totalFiles": 642,
+        "totalSize": 88500000000,
+        "topFolders": [
+          "thermal_raw",
+          "annotations",
+          "range_ops",
+          "weather"
+        ]
+      },
+      "fileSystem": {
+        "Cavazos_MOUT_Aug2025": {
+          "thermal_raw": {
+            "night_1": {
+              "boson_tripod_01.seq": {
+                "name": "boson_tripod_01.seq",
+                "path": "Cavazos_MOUT_Aug2025/thermal_raw/night_1/boson_tripod_01.seq",
+                "size": 6200000000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-08-12T03:14:00.000Z"
+              },
+              "boson_tripod_02.seq": {
+                "name": "boson_tripod_02.seq",
+                "path": "Cavazos_MOUT_Aug2025/thermal_raw/night_1/boson_tripod_02.seq",
+                "size": 5900000000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-08-12T04:02:00.000Z"
+              }
+            },
+            "night_2": {
+              "boson_handheld_01.seq": {
+                "name": "boson_handheld_01.seq",
+                "path": "Cavazos_MOUT_Aug2025/thermal_raw/night_2/boson_handheld_01.seq",
+                "size": 4400000000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-08-13T02:40:00.000Z"
+              }
+            }
+          },
+          "annotations": {
+            "coco_dismounts.json": {
+              "name": "coco_dismounts.json",
+              "path": "Cavazos_MOUT_Aug2025/annotations/coco_dismounts.json",
+              "size": 42000000,
+              "type": "application/json",
+              "lastModified": "2025-09-01T12:00:00.000Z"
+            },
+            "labelme_clothed.zip": {
+              "name": "labelme_clothed.zip",
+              "path": "Cavazos_MOUT_Aug2025/annotations/labelme_clothed.zip",
+              "size": 120000000,
+              "type": "application/zip",
+              "lastModified": "2025-09-02T18:00:00.000Z"
+            }
+          },
+          "range_ops": {
+            "range_safety_brief.pdf": {
+              "name": "range_safety_brief.pdf",
+              "path": "Cavazos_MOUT_Aug2025/range_ops/range_safety_brief.pdf",
+              "size": 3200000,
+              "type": "application/pdf",
+              "lastModified": "2025-08-11T14:00:00.000Z"
+            },
+            "trgt_positions.kml": {
+              "name": "trgt_positions.kml",
+              "path": "Cavazos_MOUT_Aug2025/range_ops/trgt_positions.kml",
+              "size": 48000,
+              "type": "application/vnd.google-earth.kml+xml",
+              "lastModified": "2025-08-12T00:00:00.000Z"
+            }
+          },
+          "weather": {
+            "metoc_log.csv": {
+              "name": "metoc_log.csv",
+              "path": "Cavazos_MOUT_Aug2025/weather/metoc_log.csv",
+              "size": 118000,
+              "type": "text/csv",
+              "lastModified": "2025-08-14T06:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0003-4c3a-9e11-000000000003",
+      "submittedAt": "2025-12-02T09:48:12.000Z",
+      "contact": {
+        "name": "Okafor, Jasmine",
+        "email": "jasmine.okafor.2@us.af.mil",
+        "organization": "711th Human Performance Wing (AFRL)"
+      },
+      "collectionName": "F-16 Flight Line Acoustic Signature Dataset",
+      "collectionDate": "2025-10",
+      "collectionSubjects": "acoustics, aircraft, F-16, flight line, engine signatures, audio, spectrogram",
+      "collectionLocation": "Luke AFB, AZ",
+      "comments": "4-channel array (B&K 4189) near hot pits and taxi ramp. Includes engine run-ups, takeoffs, and idle. Used for noise-exposure modeling and passive aircraft ID. Distro A.",
+      "stats": {
+        "totalFiles": 214,
+        "totalSize": 62300000000,
+        "topFolders": [
+          "audio_wav",
+          "metadata",
+          "spectrograms",
+          "calibration"
+        ]
+      },
+      "fileSystem": {
+        "Luke_F16_Acoustic_Oct2025": {
+          "audio_wav": {
+            "takeoff_runway_03": {
+              "f16_takeoff_001.wav": {
+                "name": "f16_takeoff_001.wav",
+                "path": "Luke_F16_Acoustic_Oct2025/audio_wav/takeoff_runway_03/f16_takeoff_001.wav",
+                "size": 1800000000,
+                "type": "audio/wav",
+                "lastModified": "2025-10-07T18:30:00.000Z"
+              },
+              "f16_takeoff_002.wav": {
+                "name": "f16_takeoff_002.wav",
+                "path": "Luke_F16_Acoustic_Oct2025/audio_wav/takeoff_runway_03/f16_takeoff_002.wav",
+                "size": 1720000000,
+                "type": "audio/wav",
+                "lastModified": "2025-10-07T19:04:00.000Z"
+              }
+            },
+            "engine_runup": {
+              "runup_afterburner.wav": {
+                "name": "runup_afterburner.wav",
+                "path": "Luke_F16_Acoustic_Oct2025/audio_wav/engine_runup/runup_afterburner.wav",
+                "size": 2400000000,
+                "type": "audio/wav",
+                "lastModified": "2025-10-08T09:12:00.000Z"
+              }
+            }
+          },
+          "metadata": {
+            "tail_numbers.csv": {
+              "name": "tail_numbers.csv",
+              "path": "Luke_F16_Acoustic_Oct2025/metadata/tail_numbers.csv",
+              "size": 24000,
+              "type": "text/csv",
+              "lastModified": "2025-10-09T10:00:00.000Z"
+            },
+            "mic_positions.json": {
+              "name": "mic_positions.json",
+              "path": "Luke_F16_Acoustic_Oct2025/metadata/mic_positions.json",
+              "size": 18000,
+              "type": "application/json",
+              "lastModified": "2025-10-06T16:00:00.000Z"
+            }
+          },
+          "spectrograms": {
+            "takeoff_spectrograms.zip": {
+              "name": "takeoff_spectrograms.zip",
+              "path": "Luke_F16_Acoustic_Oct2025/spectrograms/takeoff_spectrograms.zip",
+              "size": 980000000,
+              "type": "application/zip",
+              "lastModified": "2025-11-01T11:00:00.000Z"
+            }
+          },
+          "calibration": {
+            "pistonphone_cal.pdf": {
+              "name": "pistonphone_cal.pdf",
+              "path": "Luke_F16_Acoustic_Oct2025/calibration/pistonphone_cal.pdf",
+              "size": 820000,
+              "type": "application/pdf",
+              "lastModified": "2025-10-05T08:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0004-4c3a-9e11-000000000004",
+      "submittedAt": "2026-02-10T13:15:00.000Z",
+      "contact": {
+        "name": "Thompson, Derek",
+        "email": "derek.w.thompson14.mil@army.mil",
+        "organization": "Night Vision & Electronic Sensors Directorate (NVESD)"
+      },
+      "collectionName": "Ground Vehicle LiDAR & EO Multi-Sensor Fusion",
+      "collectionDate": "2026-Q1",
+      "collectionSubjects": "LiDAR, point cloud, Velodyne, Ouster, RGB, ground vehicles, autonomy, off-road, ATR",
+      "collectionLocation": "Fort A.P. Hill, VA",
+      "comments": "Ouster OS1-128 + Velodyne VLP-32C mounted on HMMWV and JLTV platforms. Synchronized with stereo RGB and IMU. Targets: civilian SUVs, military surrogates, dismounts in woodland. Good dataset for autonomy & ATR training. Distro C.",
+      "stats": {
+        "totalFiles": 2890,
+        "totalSize": 1540000000000,
+        "topFolders": [
+          "lidar_pcap",
+          "rgb_stereo",
+          "imu_gps",
+          "calibration",
+          "labels"
+        ]
+      },
+      "fileSystem": {
+        "APHill_LiDAR_2026Q1": {
+          "lidar_pcap": {
+            "ouster_os1_128": {
+              "run_01.pcap": {
+                "name": "run_01.pcap",
+                "path": "APHill_LiDAR_2026Q1/lidar_pcap/ouster_os1_128/run_01.pcap",
+                "size": 98000000000,
+                "type": "application/vnd.tcpdump.pcap",
+                "lastModified": "2026-01-14T13:00:00.000Z"
+              },
+              "run_02.pcap": {
+                "name": "run_02.pcap",
+                "path": "APHill_LiDAR_2026Q1/lidar_pcap/ouster_os1_128/run_02.pcap",
+                "size": 102000000000,
+                "type": "application/vnd.tcpdump.pcap",
+                "lastModified": "2026-01-14T15:00:00.000Z"
+              }
+            },
+            "velodyne_vlp32c": {
+              "run_01.pcap": {
+                "name": "run_01.pcap",
+                "path": "APHill_LiDAR_2026Q1/lidar_pcap/velodyne_vlp32c/run_01.pcap",
+                "size": 64000000000,
+                "type": "application/vnd.tcpdump.pcap",
+                "lastModified": "2026-01-14T13:00:00.000Z"
+              }
+            }
+          },
+          "rgb_stereo": {
+            "left_cam": {
+              "run_01_left.mp4": {
+                "name": "run_01_left.mp4",
+                "path": "APHill_LiDAR_2026Q1/rgb_stereo/left_cam/run_01_left.mp4",
+                "size": 22000000000,
+                "type": "video/mp4",
+                "lastModified": "2026-01-14T13:00:00.000Z"
+              }
+            },
+            "right_cam": {
+              "run_01_right.mp4": {
+                "name": "run_01_right.mp4",
+                "path": "APHill_LiDAR_2026Q1/rgb_stereo/right_cam/run_01_right.mp4",
+                "size": 22000000000,
+                "type": "video/mp4",
+                "lastModified": "2026-01-14T13:00:00.000Z"
+              }
+            }
+          },
+          "imu_gps": {
+            "novatel_span.csv": {
+              "name": "novatel_span.csv",
+              "path": "APHill_LiDAR_2026Q1/imu_gps/novatel_span.csv",
+              "size": 1200000000,
+              "type": "text/csv",
+              "lastModified": "2026-01-14T18:00:00.000Z"
+            }
+          },
+          "calibration": {
+            "cam_lidar_extrinsics.yaml": {
+              "name": "cam_lidar_extrinsics.yaml",
+              "path": "APHill_LiDAR_2026Q1/calibration/cam_lidar_extrinsics.yaml",
+              "size": 18000,
+              "type": "application/x-yaml",
+              "lastModified": "2026-01-13T09:00:00.000Z"
+            },
+            "checkerboard_session.bag": {
+              "name": "checkerboard_session.bag",
+              "path": "APHill_LiDAR_2026Q1/calibration/checkerboard_session.bag",
+              "size": 3200000000,
+              "type": "application/octet-stream",
+              "lastModified": "2026-01-13T10:30:00.000Z"
+            }
+          },
+          "labels": {
+            "3d_boxes.json": {
+              "name": "3d_boxes.json",
+              "path": "APHill_LiDAR_2026Q1/labels/3d_boxes.json",
+              "size": 88000000,
+              "type": "application/json",
+              "lastModified": "2026-02-05T14:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0005-4c3a-9e11-000000000005",
+      "submittedAt": "2025-07-19T20:00:00.000Z",
+      "contact": {
+        "name": "Chen, Priya",
+        "email": "priya.chen2.civ@us.navy.mil",
+        "organization": "Naval Surface Warfare Center, Port Hueneme"
+      },
+      "collectionName": "Littoral Small-Boat Radar Signatures",
+      "collectionDate": "2025-06",
+      "collectionSubjects": "radar, maritime, small boats, littoral, X-band, Furuno, RCS",
+      "collectionLocation": "Naval Base Ventura County, CA",
+      "comments": "X-band marine radar logs of RHIB and jetski traffic in littoral zone. Paired with AIS and EO. Useful for clutter rejection and small-craft detection. Distro B.",
+      "stats": {
+        "totalFiles": 388,
+        "totalSize": 54000000000,
+        "topFolders": [
+          "radar_logs",
+          "ais",
+          "eo_video",
+          "notes"
+        ]
+      },
+      "fileSystem": {
+        "NBVC_Littoral_June2025": {
+          "radar_logs": {
+            "day_01.rdr": {
+              "name": "day_01.rdr",
+              "path": "NBVC_Littoral_June2025/radar_logs/day_01.rdr",
+              "size": 14000000000,
+              "type": "application/octet-stream",
+              "lastModified": "2025-06-10T18:00:00.000Z"
+            },
+            "day_02.rdr": {
+              "name": "day_02.rdr",
+              "path": "NBVC_Littoral_June2025/radar_logs/day_02.rdr",
+              "size": 12400000000,
+              "type": "application/octet-stream",
+              "lastModified": "2025-06-11T18:00:00.000Z"
+            }
+          },
+          "ais": {
+            "ais_june_2025.csv": {
+              "name": "ais_june_2025.csv",
+              "path": "NBVC_Littoral_June2025/ais/ais_june_2025.csv",
+              "size": 640000000,
+              "type": "text/csv",
+              "lastModified": "2025-07-01T12:00:00.000Z"
+            }
+          },
+          "eo_video": {
+            "pier_cam_day1.mp4": {
+              "name": "pier_cam_day1.mp4",
+              "path": "NBVC_Littoral_June2025/eo_video/pier_cam_day1.mp4",
+              "size": 9800000000,
+              "type": "video/mp4",
+              "lastModified": "2025-06-10T18:00:00.000Z"
+            }
+          },
+          "notes": {
+            "README.txt": {
+              "name": "README.txt",
+              "path": "NBVC_Littoral_June2025/notes/README.txt",
+              "size": 8400,
+              "type": "text/plain",
+              "lastModified": "2025-07-18T09:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0006-4c3a-9e11-000000000006",
+      "submittedAt": "2025-05-30T08:40:00.000Z",
+      "contact": {
+        "name": "Reyes, Anthony",
+        "email": "anthony.j.reyes.mil@socom.mil",
+        "organization": "USSOCOM J8, Program Analysis"
+      },
+      "collectionName": "Mountain Warfare Cold-Weather Soldier Biometrics",
+      "collectionDate": "2025-Q1",
+      "collectionSubjects": "biometrics, physiology, heart rate, cold weather, soldier load, wearables, mountain",
+      "collectionLocation": "Northern Warfare Training Center, Fort Wainwright, AK",
+      "comments": "Garmin and Hexoskin wearable data from 24 volunteers during NWTC cold weather course. HR, HRV, skin temp, SpO2 where available. IRB-approved, PII stripped. Distro B.",
+      "stats": {
+        "totalFiles": 512,
+        "totalSize": 2100000000,
+        "topFolders": [
+          "wearables",
+          "survey_responses",
+          "irb"
+        ]
+      },
+      "fileSystem": {
+        "NWTC_Biometrics_2025Q1": {
+          "wearables": {
+            "garmin": {
+              "subject_01.fit": {
+                "name": "subject_01.fit",
+                "path": "NWTC_Biometrics_2025Q1/wearables/garmin/subject_01.fit",
+                "size": 2400000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-02-14T20:00:00.000Z"
+              },
+              "subject_02.fit": {
+                "name": "subject_02.fit",
+                "path": "NWTC_Biometrics_2025Q1/wearables/garmin/subject_02.fit",
+                "size": 2280000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-02-14T20:00:00.000Z"
+              }
+            },
+            "hexoskin": {
+              "subject_01.hxi": {
+                "name": "subject_01.hxi",
+                "path": "NWTC_Biometrics_2025Q1/wearables/hexoskin/subject_01.hxi",
+                "size": 48000000,
+                "type": "application/octet-stream",
+                "lastModified": "2025-02-14T20:00:00.000Z"
+              }
+            }
+          },
+          "survey_responses": {
+            "pre_exercise.csv": {
+              "name": "pre_exercise.csv",
+              "path": "NWTC_Biometrics_2025Q1/survey_responses/pre_exercise.csv",
+              "size": 88000,
+              "type": "text/csv",
+              "lastModified": "2025-02-12T10:00:00.000Z"
+            },
+            "post_exercise.csv": {
+              "name": "post_exercise.csv",
+              "path": "NWTC_Biometrics_2025Q1/survey_responses/post_exercise.csv",
+              "size": 92000,
+              "type": "text/csv",
+              "lastModified": "2025-02-20T16:00:00.000Z"
+            }
+          },
+          "irb": {
+            "approval_letter.pdf": {
+              "name": "approval_letter.pdf",
+              "path": "NWTC_Biometrics_2025Q1/irb/approval_letter.pdf",
+              "size": 1400000,
+              "type": "application/pdf",
+              "lastModified": "2024-12-01T09:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0007-4c3a-9e11-000000000007",
+      "submittedAt": "2026-03-14T12:22:00.000Z",
+      "contact": {
+        "name": "Patel, Aarav",
+        "email": "aarav.patel.ctr@army.mil",
+        "organization": "CCDC Armaments Center, Picatinny"
+      },
+      "collectionName": "Small Arms Acoustic Gunshot Localization",
+      "collectionDate": "2026-02",
+      "collectionSubjects": "gunshot, acoustics, M4, M240, small arms, muzzle blast, shockwave, localization",
+      "collectionLocation": "Picatinny Arsenal, NJ (Range 6)",
+      "comments": "Distributed microphone array (16 channels) recording M4, M240, and M107 fire from known positions. Ground truth surveyed. Useful for sniper-detection and gunshot-localization research. Distro A, OPSEC-reviewed.",
+      "stats": {
+        "totalFiles": 128,
+        "totalSize": 18400000000,
+        "topFolders": [
+          "multichannel_wav",
+          "ground_truth",
+          "range_diagrams"
+        ]
+      },
+      "fileSystem": {
+        "Picatinny_Gunshot_Feb2026": {
+          "multichannel_wav": {
+            "m4_session.wav": {
+              "name": "m4_session.wav",
+              "path": "Picatinny_Gunshot_Feb2026/multichannel_wav/m4_session.wav",
+              "size": 5400000000,
+              "type": "audio/wav",
+              "lastModified": "2026-02-11T14:00:00.000Z"
+            },
+            "m240_session.wav": {
+              "name": "m240_session.wav",
+              "path": "Picatinny_Gunshot_Feb2026/multichannel_wav/m240_session.wav",
+              "size": 6200000000,
+              "type": "audio/wav",
+              "lastModified": "2026-02-11T15:30:00.000Z"
+            },
+            "m107_session.wav": {
+              "name": "m107_session.wav",
+              "path": "Picatinny_Gunshot_Feb2026/multichannel_wav/m107_session.wav",
+              "size": 4800000000,
+              "type": "audio/wav",
+              "lastModified": "2026-02-11T16:45:00.000Z"
+            }
+          },
+          "ground_truth": {
+            "shooter_positions.csv": {
+              "name": "shooter_positions.csv",
+              "path": "Picatinny_Gunshot_Feb2026/ground_truth/shooter_positions.csv",
+              "size": 18000,
+              "type": "text/csv",
+              "lastModified": "2026-02-11T18:00:00.000Z"
+            },
+            "mic_positions.csv": {
+              "name": "mic_positions.csv",
+              "path": "Picatinny_Gunshot_Feb2026/ground_truth/mic_positions.csv",
+              "size": 22000,
+              "type": "text/csv",
+              "lastModified": "2026-02-11T18:00:00.000Z"
+            }
+          },
+          "range_diagrams": {
+            "range6_layout.pdf": {
+              "name": "range6_layout.pdf",
+              "path": "Picatinny_Gunshot_Feb2026/range_diagrams/range6_layout.pdf",
+              "size": 2800000,
+              "type": "application/pdf",
+              "lastModified": "2026-02-10T08:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0008-4c3a-9e11-000000000008",
+      "submittedAt": "2025-10-01T15:10:00.000Z",
+      "contact": {
+        "name": "Nguyen, Linh",
+        "email": "linh.nguyen.civ@us.navy.mil",
+        "organization": "Marine Corps Systems Command"
+      },
+      "collectionName": "Amphibious Beach Landing Multispectral Imagery",
+      "collectionDate": "2025-Q3",
+      "collectionSubjects": "multispectral, beach, littoral, landing craft, amphibious, satellite, drone",
+      "collectionLocation": "MCB Camp Pendleton, CA (Red Beach)",
+      "comments": "DJI Matrice 350 with MicaSense RedEdge-P multispectral over Red Beach during AAV/ACV landing exercise. Paired with Planet & Sentinel-2 imagery. Shoreline change and vehicle imprint analysis. Distro A.",
+      "stats": {
+        "totalFiles": 1204,
+        "totalSize": 78000000000,
+        "topFolders": [
+          "drone_multispectral",
+          "satellite_imagery",
+          "gcps",
+          "processed_orthos"
+        ]
+      },
+      "fileSystem": {
+        "Pendleton_RedBeach_2025Q3": {
+          "drone_multispectral": {
+            "mission_01": {
+              "red_0001.tif": {
+                "name": "red_0001.tif",
+                "path": "Pendleton_RedBeach_2025Q3/drone_multispectral/mission_01/red_0001.tif",
+                "size": 48000000,
+                "type": "image/tiff",
+                "lastModified": "2025-09-08T13:00:00.000Z"
+              },
+              "nir_0001.tif": {
+                "name": "nir_0001.tif",
+                "path": "Pendleton_RedBeach_2025Q3/drone_multispectral/mission_01/nir_0001.tif",
+                "size": 48000000,
+                "type": "image/tiff",
+                "lastModified": "2025-09-08T13:00:00.000Z"
+              },
+              "rededge_0001.tif": {
+                "name": "rededge_0001.tif",
+                "path": "Pendleton_RedBeach_2025Q3/drone_multispectral/mission_01/rededge_0001.tif",
+                "size": 48000000,
+                "type": "image/tiff",
+                "lastModified": "2025-09-08T13:00:00.000Z"
+              }
+            }
+          },
+          "satellite_imagery": {
+            "planet_20250908.tif": {
+              "name": "planet_20250908.tif",
+              "path": "Pendleton_RedBeach_2025Q3/satellite_imagery/planet_20250908.tif",
+              "size": 4200000000,
+              "type": "image/tiff",
+              "lastModified": "2025-09-09T00:00:00.000Z"
+            },
+            "sentinel2_20250905.tif": {
+              "name": "sentinel2_20250905.tif",
+              "path": "Pendleton_RedBeach_2025Q3/satellite_imagery/sentinel2_20250905.tif",
+              "size": 3200000000,
+              "type": "image/tiff",
+              "lastModified": "2025-09-06T00:00:00.000Z"
+            }
+          },
+          "gcps": {
+            "ground_control_points.csv": {
+              "name": "ground_control_points.csv",
+              "path": "Pendleton_RedBeach_2025Q3/gcps/ground_control_points.csv",
+              "size": 42000,
+              "type": "text/csv",
+              "lastModified": "2025-09-08T09:00:00.000Z"
+            }
+          },
+          "processed_orthos": {
+            "redbeach_ortho_10cm.tif": {
+              "name": "redbeach_ortho_10cm.tif",
+              "path": "Pendleton_RedBeach_2025Q3/processed_orthos/redbeach_ortho_10cm.tif",
+              "size": 12000000000,
+              "type": "image/tiff",
+              "lastModified": "2025-09-20T12:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0009-4c3a-9e11-000000000009",
+      "submittedAt": "2026-01-19T10:30:00.000Z",
+      "contact": {
+        "name": "Sullivan, Erin",
+        "email": "erin.p.sullivan.mil@army.mil",
+        "organization": "Combined Arms Center, Fort Leavenworth"
+      },
+      "collectionName": "JRTC Rotation 26-02 Operational Data",
+      "collectionDate": "2025-12",
+      "collectionSubjects": "JRTC, rotation, AAR, OPFOR, BCT, force-on-force, OE data",
+      "collectionLocation": "Fort Johnson, LA (JRTC)",
+      "comments": "Observer/Controller notes, AAR products, MILES data exports, and selected UAS feeds from JRTC rotation 26-02. OPFOR and BLUFOR movement tracks. FOUO.",
+      "stats": {
+        "totalFiles": 932,
+        "totalSize": 240000000000,
+        "topFolders": [
+          "aar_products",
+          "miles_data",
+          "uas_feeds",
+          "movement_tracks",
+          "planning"
+        ]
+      },
+      "fileSystem": {
+        "JRTC_26-02": {
+          "aar_products": {
+            "bde_aar.pptx": {
+              "name": "bde_aar.pptx",
+              "path": "JRTC_26-02/aar_products/bde_aar.pptx",
+              "size": 48000000,
+              "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+              "lastModified": "2025-12-20T09:00:00.000Z"
+            },
+            "bn_aars.zip": {
+              "name": "bn_aars.zip",
+              "path": "JRTC_26-02/aar_products/bn_aars.zip",
+              "size": 280000000,
+              "type": "application/zip",
+              "lastModified": "2025-12-20T10:00:00.000Z"
+            }
+          },
+          "miles_data": {
+            "engagements.csv": {
+              "name": "engagements.csv",
+              "path": "JRTC_26-02/miles_data/engagements.csv",
+              "size": 220000000,
+              "type": "text/csv",
+              "lastModified": "2025-12-19T23:00:00.000Z"
+            }
+          },
+          "uas_feeds": {
+            "rq7_shadow_day3.mp4": {
+              "name": "rq7_shadow_day3.mp4",
+              "path": "JRTC_26-02/uas_feeds/rq7_shadow_day3.mp4",
+              "size": 28000000000,
+              "type": "video/mp4",
+              "lastModified": "2025-12-15T20:00:00.000Z"
+            }
+          },
+          "movement_tracks": {
+            "blue_tracks.kmz": {
+              "name": "blue_tracks.kmz",
+              "path": "JRTC_26-02/movement_tracks/blue_tracks.kmz",
+              "size": 64000000,
+              "type": "application/vnd.google-earth.kmz",
+              "lastModified": "2025-12-19T22:00:00.000Z"
+            },
+            "opfor_tracks.kmz": {
+              "name": "opfor_tracks.kmz",
+              "path": "JRTC_26-02/movement_tracks/opfor_tracks.kmz",
+              "size": 52000000,
+              "type": "application/vnd.google-earth.kmz",
+              "lastModified": "2025-12-19T22:00:00.000Z"
+            }
+          },
+          "planning": {
+            "opord_26-02.pdf": {
+              "name": "opord_26-02.pdf",
+              "path": "JRTC_26-02/planning/opord_26-02.pdf",
+              "size": 12000000,
+              "type": "application/pdf",
+              "lastModified": "2025-12-08T08:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0010-4c3a-9e11-000000000010",
+      "submittedAt": "2025-08-25T18:25:00.000Z",
+      "contact": {
+        "name": "Brooks, Hannah",
+        "email": "hannah.r.brooks3.civ@us.af.mil",
+        "organization": "Air Force Test Center, Edwards AFB"
+      },
+      "collectionName": "High-Altitude UAV Atmospheric Soundings",
+      "collectionDate": "2025-08",
+      "collectionSubjects": "atmospheric, weather, soundings, high altitude, UAV, temperature, humidity, winds",
+      "collectionLocation": "Edwards AFB, CA",
+      "comments": "Long-endurance UAV flights carrying meteorological payload to 60kft over R-2508. Temperature, humidity, pressure, winds aloft. Good comparison against rawinsonde. Distro A.",
+      "stats": {
+        "totalFiles": 76,
+        "totalSize": 4200000000,
+        "topFolders": [
+          "sounding_csv",
+          "rawinsonde",
+          "flight_profiles"
+        ]
+      },
+      "fileSystem": {
+        "Edwards_Soundings_Aug2025": {
+          "sounding_csv": {
+            "flight_001.csv": {
+              "name": "flight_001.csv",
+              "path": "Edwards_Soundings_Aug2025/sounding_csv/flight_001.csv",
+              "size": 180000000,
+              "type": "text/csv",
+              "lastModified": "2025-08-05T16:00:00.000Z"
+            },
+            "flight_002.csv": {
+              "name": "flight_002.csv",
+              "path": "Edwards_Soundings_Aug2025/sounding_csv/flight_002.csv",
+              "size": 172000000,
+              "type": "text/csv",
+              "lastModified": "2025-08-07T16:00:00.000Z"
+            }
+          },
+          "rawinsonde": {
+            "kedw_raobs.tar.gz": {
+              "name": "kedw_raobs.tar.gz",
+              "path": "Edwards_Soundings_Aug2025/rawinsonde/kedw_raobs.tar.gz",
+              "size": 680000000,
+              "type": "application/gzip",
+              "lastModified": "2025-08-25T09:00:00.000Z"
+            }
+          },
+          "flight_profiles": {
+            "profiles_summary.pdf": {
+              "name": "profiles_summary.pdf",
+              "path": "Edwards_Soundings_Aug2025/flight_profiles/profiles_summary.pdf",
+              "size": 8400000,
+              "type": "application/pdf",
+              "lastModified": "2025-08-25T12:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0011-4c3a-9e11-000000000011",
+      "submittedAt": "2025-06-14T07:45:00.000Z",
+      "contact": {
+        "name": "Whitaker, Caleb",
+        "email": "caleb.t.whitaker.mil@usmc.mil",
+        "organization": "Marine Corps Tactics and Operations Group (MCTOG)"
+      },
+      "collectionName": "29 Palms Desert Live-Fire Dismount Thermal/EO",
+      "collectionDate": "2025-05",
+      "collectionSubjects": "desert, dismounts, live-fire, thermal, EO, infantry, Marines, 29 Palms",
+      "collectionLocation": "MCAGCC Twentynine Palms, CA",
+      "comments": "EO and uncooled LWIR of dismounted squads conducting live-fire at Range 400. Day and dusk. Useful for desert environment ATR training. FOUO.",
+      "stats": {
+        "totalFiles": 318,
+        "totalSize": 92000000000,
+        "topFolders": [
+          "eo",
+          "ir",
+          "range_logs"
+        ]
+      },
+      "fileSystem": {
+        "TwentyninePalms_Range400_May2025": {
+          "eo": {
+            "day_01.mp4": {
+              "name": "day_01.mp4",
+              "path": "TwentyninePalms_Range400_May2025/eo/day_01.mp4",
+              "size": 18000000000,
+              "type": "video/mp4",
+              "lastModified": "2025-05-12T14:00:00.000Z"
+            },
+            "dusk_01.mp4": {
+              "name": "dusk_01.mp4",
+              "path": "TwentyninePalms_Range400_May2025/eo/dusk_01.mp4",
+              "size": 12000000000,
+              "type": "video/mp4",
+              "lastModified": "2025-05-12T19:30:00.000Z"
+            }
+          },
+          "ir": {
+            "lwir_day.seq": {
+              "name": "lwir_day.seq",
+              "path": "TwentyninePalms_Range400_May2025/ir/lwir_day.seq",
+              "size": 14000000000,
+              "type": "application/octet-stream",
+              "lastModified": "2025-05-12T14:00:00.000Z"
+            },
+            "lwir_dusk.seq": {
+              "name": "lwir_dusk.seq",
+              "path": "TwentyninePalms_Range400_May2025/ir/lwir_dusk.seq",
+              "size": 16000000000,
+              "type": "application/octet-stream",
+              "lastModified": "2025-05-12T19:30:00.000Z"
+            }
+          },
+          "range_logs": {
+            "range400_brief.pdf": {
+              "name": "range400_brief.pdf",
+              "path": "TwentyninePalms_Range400_May2025/range_logs/range400_brief.pdf",
+              "size": 4200000,
+              "type": "application/pdf",
+              "lastModified": "2025-05-11T10:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0012-4c3a-9e11-000000000012",
+      "submittedAt": "2026-04-02T11:05:00.000Z",
+      "contact": {
+        "name": "Hayes, Jordan",
+        "email": "jordan.r.hayes2.civ@army.mil",
+        "organization": "Army Research Laboratory (ARL)"
+      },
+      "collectionName": "Counter-UAS RF Signature Library",
+      "collectionDate": "2026-Q1",
+      "collectionSubjects": "counter-UAS, C-UAS, RF, SDR, drone, signals, 2.4GHz, 5.8GHz, DJI, Autel",
+      "collectionLocation": "White Sands Missile Range, NM",
+      "comments": "Ettus X310 SDR captures of commercial drone control links and video downlinks. DJI Mavic 3, Autel EVO II, FPV 5.8GHz. Multiple SNR conditions. Cleared for release. Distro A.",
+      "stats": {
+        "totalFiles": 420,
+        "totalSize": 680000000000,
+        "topFolders": [
+          "iq_captures",
+          "classified_labels",
+          "spectrum_plots",
+          "sdr_config"
+        ]
+      },
+      "fileSystem": {
+        "WSMR_CUAS_RF_2026Q1": {
+          "iq_captures": {
+            "dji_mavic3_24ghz": {
+              "capture_001.sc16": {
+                "name": "capture_001.sc16",
+                "path": "WSMR_CUAS_RF_2026Q1/iq_captures/dji_mavic3_24ghz/capture_001.sc16",
+                "size": 48000000000,
+                "type": "application/octet-stream",
+                "lastModified": "2026-01-28T14:00:00.000Z"
+              },
+              "capture_002.sc16": {
+                "name": "capture_002.sc16",
+                "path": "WSMR_CUAS_RF_2026Q1/iq_captures/dji_mavic3_24ghz/capture_002.sc16",
+                "size": 52000000000,
+                "type": "application/octet-stream",
+                "lastModified": "2026-01-28T15:30:00.000Z"
+              }
+            },
+            "autel_evo2_58ghz": {
+              "capture_003.sc16": {
+                "name": "capture_003.sc16",
+                "path": "WSMR_CUAS_RF_2026Q1/iq_captures/autel_evo2_58ghz/capture_003.sc16",
+                "size": 44000000000,
+                "type": "application/octet-stream",
+                "lastModified": "2026-01-29T11:00:00.000Z"
+              }
+            },
+            "fpv_analog_58ghz": {
+              "capture_004.sc16": {
+                "name": "capture_004.sc16",
+                "path": "WSMR_CUAS_RF_2026Q1/iq_captures/fpv_analog_58ghz/capture_004.sc16",
+                "size": 38000000000,
+                "type": "application/octet-stream",
+                "lastModified": "2026-01-29T14:00:00.000Z"
+              }
+            }
+          },
+          "classified_labels": {
+            "labels.json": {
+              "name": "labels.json",
+              "path": "WSMR_CUAS_RF_2026Q1/classified_labels/labels.json",
+              "size": 4200000,
+              "type": "application/json",
+              "lastModified": "2026-03-15T10:00:00.000Z"
+            }
+          },
+          "spectrum_plots": {
+            "waterfalls.zip": {
+              "name": "waterfalls.zip",
+              "path": "WSMR_CUAS_RF_2026Q1/spectrum_plots/waterfalls.zip",
+              "size": 1200000000,
+              "type": "application/zip",
+              "lastModified": "2026-03-20T09:00:00.000Z"
+            }
+          },
+          "sdr_config": {
+            "x310_config.yml": {
+              "name": "x310_config.yml",
+              "path": "WSMR_CUAS_RF_2026Q1/sdr_config/x310_config.yml",
+              "size": 12000,
+              "type": "application/x-yaml",
+              "lastModified": "2026-01-27T08:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0013-4c3a-9e11-000000000013",
+      "submittedAt": "2025-04-11T09:00:00.000Z",
+      "contact": {
+        "name": "Ibarra, Luis",
+        "email": "luis.ibarra.civ@us.navy.mil",
+        "organization": "Office of Naval Research"
+      },
+      "collectionName": "Submarine Ambient Ocean Noise Survey",
+      "collectionDate": "2025-Q1",
+      "collectionSubjects": "sonar, hydrophone, ambient noise, ocean, submarine, passive acoustics",
+      "collectionLocation": "Naval Submarine Base Kings Bay, GA",
+      "comments": "Moored hydrophone array in St. Marys River approach. 30-day passive recording. Also includes AIS ship traffic for correlation. Distro C.",
+      "stats": {
+        "totalFiles": 2160,
+        "totalSize": 340000000000,
+        "topFolders": [
+          "hydrophone_wav",
+          "ais",
+          "mooring_info"
+        ]
+      },
+      "fileSystem": {
+        "KingsBay_Ambient_2025Q1": {
+          "hydrophone_wav": {
+            "week_01": {
+              "h01_20250201.wav": {
+                "name": "h01_20250201.wav",
+                "path": "KingsBay_Ambient_2025Q1/hydrophone_wav/week_01/h01_20250201.wav",
+                "size": 6800000000,
+                "type": "audio/wav",
+                "lastModified": "2025-02-01T00:00:00.000Z"
+              },
+              "h01_20250202.wav": {
+                "name": "h01_20250202.wav",
+                "path": "KingsBay_Ambient_2025Q1/hydrophone_wav/week_01/h01_20250202.wav",
+                "size": 6800000000,
+                "type": "audio/wav",
+                "lastModified": "2025-02-02T00:00:00.000Z"
+              }
+            }
+          },
+          "ais": {
+            "kingsbay_ais_feb2025.csv": {
+              "name": "kingsbay_ais_feb2025.csv",
+              "path": "KingsBay_Ambient_2025Q1/ais/kingsbay_ais_feb2025.csv",
+              "size": 1400000000,
+              "type": "text/csv",
+              "lastModified": "2025-03-05T10:00:00.000Z"
+            }
+          },
+          "mooring_info": {
+            "mooring_diagram.pdf": {
+              "name": "mooring_diagram.pdf",
+              "path": "KingsBay_Ambient_2025Q1/mooring_info/mooring_diagram.pdf",
+              "size": 2800000,
+              "type": "application/pdf",
+              "lastModified": "2025-01-25T09:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0014-4c3a-9e11-000000000014",
+      "submittedAt": "2025-11-26T14:55:00.000Z",
+      "contact": {
+        "name": "Becker, Sophia",
+        "email": "sophia.becker.civ@army.mil",
+        "organization": "Joint Readiness Medical Command"
+      },
+      "collectionName": "Combat Casualty Care Training Vitals Dataset",
+      "collectionDate": "2025-11",
+      "collectionSubjects": "TCCC, medic, casualty care, vitals, simulation, training, physiology",
+      "collectionLocation": "Fort Liberty, NC",
+      "comments": "Vital signs and instructor notes from TCCC simulation lane. Includes SimMan 3G logs, student BP/HR cuffs, and video observation. PII removed. Distro A.",
+      "stats": {
+        "totalFiles": 284,
+        "totalSize": 14200000000,
+        "topFolders": [
+          "simman_logs",
+          "student_vitals",
+          "observation_video",
+          "after_action"
+        ]
+      },
+      "fileSystem": {
+        "Liberty_TCCC_Nov2025": {
+          "simman_logs": {
+            "lane_a": {
+              "scenario_01.xml": {
+                "name": "scenario_01.xml",
+                "path": "Liberty_TCCC_Nov2025/simman_logs/lane_a/scenario_01.xml",
+                "size": 420000,
+                "type": "application/xml",
+                "lastModified": "2025-11-05T13:00:00.000Z"
+              },
+              "scenario_02.xml": {
+                "name": "scenario_02.xml",
+                "path": "Liberty_TCCC_Nov2025/simman_logs/lane_a/scenario_02.xml",
+                "size": 440000,
+                "type": "application/xml",
+                "lastModified": "2025-11-05T14:30:00.000Z"
+              }
+            }
+          },
+          "student_vitals": {
+            "student_vitals.csv": {
+              "name": "student_vitals.csv",
+              "path": "Liberty_TCCC_Nov2025/student_vitals/student_vitals.csv",
+              "size": 18000000,
+              "type": "text/csv",
+              "lastModified": "2025-11-10T17:00:00.000Z"
+            }
+          },
+          "observation_video": {
+            "lane_a_day1.mp4": {
+              "name": "lane_a_day1.mp4",
+              "path": "Liberty_TCCC_Nov2025/observation_video/lane_a_day1.mp4",
+              "size": 4200000000,
+              "type": "video/mp4",
+              "lastModified": "2025-11-05T16:00:00.000Z"
+            }
+          },
+          "after_action": {
+            "aar.docx": {
+              "name": "aar.docx",
+              "path": "Liberty_TCCC_Nov2025/after_action/aar.docx",
+              "size": 1800000,
+              "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "lastModified": "2025-11-20T11:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1e6b4d2-0015-4c3a-9e11-000000000015",
+      "submittedAt": "2026-02-28T17:20:00.000Z",
+      "contact": {
+        "name": "Park, Daniel",
+        "email": "daniel.y.park.mil@army.mil",
+        "organization": "Space and Missile Defense Command"
+      },
+      "collectionName": "Satellite Ground Station RF Interference Survey",
+      "collectionDate": "2026-01",
+      "collectionSubjects": "SATCOM, ground station, RF interference, spectrum, Ka-band, X-band, EMI",
+      "collectionLocation": "Schriever SFB, CO",
+      "comments": "Wideband spectrum survey around SATCOM ground station terminals. X-band and Ka-band. Identified several intermittent interferers. Distro B.",
+      "stats": {
+        "totalFiles": 96,
+        "totalSize": 120000000000,
+        "topFolders": [
+          "wideband_captures",
+          "analysis",
+          "site_survey"
+        ]
+      },
+      "fileSystem": {
+        "Schriever_RFI_2026Q1": {
+          "wideband_captures": {
+            "xband_survey_001.iq": {
+              "name": "xband_survey_001.iq",
+              "path": "Schriever_RFI_2026Q1/wideband_captures/xband_survey_001.iq",
+              "size": 28000000000,
+              "type": "application/octet-stream",
+              "lastModified": "2026-01-18T14:00:00.000Z"
+            },
+            "kaband_survey_001.iq": {
+              "name": "kaband_survey_001.iq",
+              "path": "Schriever_RFI_2026Q1/wideband_captures/kaband_survey_001.iq",
+              "size": 32000000000,
+              "type": "application/octet-stream",
+              "lastModified": "2026-01-19T14:00:00.000Z"
+            }
+          },
+          "analysis": {
+            "interference_report.pdf": {
+              "name": "interference_report.pdf",
+              "path": "Schriever_RFI_2026Q1/analysis/interference_report.pdf",
+              "size": 14000000,
+              "type": "application/pdf",
+              "lastModified": "2026-02-10T10:00:00.000Z"
+            },
+            "plots.zip": {
+              "name": "plots.zip",
+              "path": "Schriever_RFI_2026Q1/analysis/plots.zip",
+              "size": 1800000000,
+              "type": "application/zip",
+              "lastModified": "2026-02-10T10:00:00.000Z"
+            }
+          },
+          "site_survey": {
+            "antenna_positions.csv": {
+              "name": "antenna_positions.csv",
+              "path": "Schriever_RFI_2026Q1/site_survey/antenna_positions.csv",
+              "size": 28000,
+              "type": "text/csv",
+              "lastModified": "2026-01-17T09:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "3bffa839-7a45-40d4-a668-a6f093c57cce",
+      "submittedAt": "2026-07-01T16:17:32.916Z",
+      "contact": {
+        "name": "Test",
+        "email": "test@test.com",
+        "organization": ""
+      },
+      "collectionName": "",
+      "collectionDate": "",
+      "collectionSubjects": "",
+      "collectionLocation": "",
+      "comments": "",
+      "stats": {
+        "totalFiles": 0,
+        "totalSize": 0,
+        "topFolders": []
+      },
+      "fileSystem": null
+    }
+  ]
+}

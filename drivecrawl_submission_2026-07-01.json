@@ -1,0 +1,21 @@
+{
+  "schema": "drivecrawl-submission/v1",
+  "id": "942d4014-0b42-4df3-836f-f248b5d1bef9",
+  "submittedAt": "2026-07-01T16:11:32.598Z",
+  "contact": {
+    "name": "Test",
+    "email": "test@test.com",
+    "organization": ""
+  },
+  "collectionName": "",
+  "collectionDate": "",
+  "collectionSubjects": "",
+  "collectionLocation": "",
+  "comments": "",
+  "stats": {
+    "totalFiles": 0,
+    "totalSize": 0,
+    "topFolders": []
+  },
+  "fileSystem": null
+}
